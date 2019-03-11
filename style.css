@@ -1,0 +1,50 @@
+/** {
+  border: 1px dotted red;
+}*/
+
+#Torii, #ToriiCover {
+	width: 510px;
+	height: 350px;
+	margin: 0px;
+	padding: 0px;
+	position: relative;
+	/*margin: 15px 0px;*/
+	overflow: hidden;
+}
+
+#Torii {
+	background-image:url(https://cdn-image.travelandleisure.com/sites/default/files/styles/1600x1000/public/1449611329/TL0116HOK01-HOKKAIDO0116.jpg?itok=8HDNz8bJ);
+	background-size:cover;
+	margin-bottom: 15px;
+	z-index:0;
+}
+
+input {
+	flex-grow: 2;
+}
+
+img {
+	/*width: 350px;*/
+	height: 100%;
+	position: absolute;
+	bottom: 0px;
+	user-select: none;
+}
+
+.container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 15px;
+}
+
+label {
+	width: 100px;
+	text-align: center;
+}
+
+fieldset {
+	width: 510px;
+	margin: 15px 0px;
+	box-sizing: border-box;
+}

@@ -1,0 +1,56 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="style.css">
+		<script src="script.js" defer></script>
+	</head>
+<body>
+	<fieldset>
+	<legend>Start position</legend>
+	<div class="container">
+    <label>Count</label>
+    <input id = "setCount" type="range" min="5" max="150" step="1" value="10">
+    <label id = "setCountValue">10</label>
+    <!--<input type='button' value='Set' onclick="initTorii()">-->
+	</div>
+	</fieldset>
+
+<figure id="Torii" style="width: 510px;height: 350px;"><figure id="ToriiCover" style="width: 510px;height: 350px;z-index:2"></figure></figure>
+
+<form>
+	<fieldset>
+		<legend>Setting</legend>
+		<div class="container">
+			<label>Focus</label>
+			<input id="focusRange" type="range"	min="0" max="10" step="1" value="0">
+			<label id="focusRangeValue">0</label>
+		</div>
+		<div class="container">
+			<label>Aperture</label>
+			<input id="apertureRange" type="range"	min="2" max="32" step="1" value="8">
+			<label id="apertureRangeValue">0</label>
+		</div>
+		<div class="container">
+			<label>Distance</label>
+			<input id="distanceRange" type="range"	min="0.5" max="0.99" step="0.01" value="0.9">
+			<label id="distanceRangeValue">0</label>
+		</div>
+		<div class="container">
+			<label>Effect</label>
+			<input id="effectRange" type="range" min="50" max="1000" step="50" value="50">
+			<label id="effectRangeValue">0</label>
+		</div>
+	</fieldset>
+	<fieldset>
+		<legend>Cursor position</legend>
+			<div class="container">
+				<label id="mouseX"></label>
+				<label id="mouseY"></label>
+				<label id="offsetX"></label>
+				<label id="offsetY"></label>
+			</div>
+	</fieldset>
+ 
+</form>
+</body>
+</html>
