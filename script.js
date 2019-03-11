@@ -1,12 +1,8 @@
-	/*
-<img style="z-index: -1; transform: scale(1)" src="http://pluspng.com/img-png/torii-gate-png-torii-gate-by-herbertrocha-610.png">
-*/
-
 var elemTorii = document.getElementById('Torii');
 var AVG_X = parseInt(elemTorii.style.width)/2;
 var AVG_Y = parseInt(elemTorii.style.height)/2;
 
-var IMG_LIST = elemTorii.getElementsByTagName('img'); //HTMLCollection
+var IMG_LIST = elemTorii.getElementsByTagName('img'); //HTMLCollection из элементов "img"
 
 initTorii();
 
@@ -20,6 +16,7 @@ document.getElementById('offsetY').innerText = 'offsetY: ' + AVG_Y;
 
 elemTorii.onmousemove = Paralax;
 
+//Расчет при первоначальной загрузке страницы
 function initTorii() {
 	
 	updateLabelValue('setCount', 'setCountValue');
@@ -32,6 +29,7 @@ function initTorii() {
 	
 }
 
+//Изменение "расстояния" между соседними элементами
 function setDistance() {
 	
 	updateLabelValue('distanceRange', 'distanceRangeValue');
@@ -44,31 +42,23 @@ function setDistance() {
 	setAperture();
 }
 
+//Обновление значения "effectRange"
 function setEffect() {
 	
 	updateLabelValue('effectRange', 'effectRangeValue');
 }
 
-
+//Пересчет псевдо-ГРИП
 function setAperture() {
 	
 	updateLabelValue('apertureRange', 'apertureRangeValue');
 	
 	for(let i = 0; i < IMG_LIST.length; i++) {
-		IMG_LIST[i].style.filter = 'blur(' + 
-			/*(( i * ( (20/(+document.getElementById('apertureRange').value)/(+document.getElementById('distanceRange').value+document.getElementById('apertureRange').value )) 
-			/ ( +document.getElementById('apertureRange').value * 50) 
-			) 
-		) / (document.getElementById('distanceRange').value*document.getElementById('distanceRange').value) ) */
-		
-		((i*5) / +document.getElementById('apertureRange').value) / (Math.pow(+document.getElementById('distanceRange').value,3))
-		
-		//Math.log(i*10 + +document.getElementById('apertureRange').value) 
-		+'px)';
+		IMG_LIST[i].style.filter = 'blur(' + ((i*5) / +document.getElementById('apertureRange').value) / (Math.pow(+document.getElementById('distanceRange').value,3)) +'px)';
 	}
 }
 
-
+//Создание новых элементов в контейнере "elemTorii"
 function createImg(){
 	
 	for(let i = 0; i < document.getElementById('setCount').value; i++) {
@@ -82,9 +72,7 @@ function createImg(){
 	}
 }
 
-
-
-
+//Удаждение всех элементов в контейнере "elemTorii"
 function removeImg() {
 	
 	let currentImgLength = IMG_LIST.length;
@@ -93,14 +81,9 @@ function removeImg() {
 		IMG_LIST[0].remove();
 		//console.log(IMG_LIST.length);
 	}
- 
 }
 
-
-
-
-
-
+//Реализация эффекта параллакса для всех элементов "img" в контейнере "elemTorii"
 function Paralax() {
 
 	document.getElementById('mouseX').innerText = 'X: ' + event.offsetX;
@@ -114,22 +97,20 @@ function Paralax() {
 			IMG_LIST[i].style.left = (AVG_X - event.offsetX) * j / document.getElementById('effectRange').value + 'px';
 		}
 		
+		//Вертикалный параллакс
 		/*if(event.offsetY > AVG_Y) {
 			IMG_LIST[i].style.top = -(event.offsetY - AVG_Y)*j/document.getElementById('effectRange').value + 'px';
 		} else { 
-		IMG_LIST[i].style.top = (AVG_Y - event.offsetY)*j/document.getElementById('effectRange').value + 'px';
+			IMG_LIST[i].style.top = (AVG_Y - event.offsetY)*j/document.getElementById('effectRange').value + 'px';
 		}
 		*/
 	}
 
 }
 
-
-
+//Обновление содержимого элементов "label"
 function updateLabelValue(rangeId, rangeLabelId) {
-	//if(document.getElementById(rangeId).value == '0') {
-	//	document.getElementById(rangeLabelId).innerText = 'off'
-	//} else {
+	
 		document.getElementById(rangeLabelId).innerText = document.getElementById(rangeId).value;
-	//}	 
+	
 }
