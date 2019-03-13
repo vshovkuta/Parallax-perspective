@@ -71,7 +71,7 @@ function setAperture() {
 		IMG_LIST[i].style.filter = 'blur(' + ((n*5) / +document.getElementById('apertureRange').value) / (Math.pow(+document.getElementById('distanceRange').value,3)) +'px)';
 	}
 	
-	let backgroundBlur = ((n*5) / +document.getElementById('apertureRange').value) / (Math.pow(+document.getElementById('distanceRange').value,3));
+	let backgroundBlur = (((n+3)*5) / +document.getElementById('apertureRange').value) / (Math.pow(+document.getElementById('distanceRange').value,3));
 	document.getElementById('ToriiBackground').style.filter = 'blur(' + ( backgroundBlur <= 25? backgroundBlur : 25 ) + 'px)';
 	
 	
