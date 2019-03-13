@@ -10,6 +10,7 @@ document.getElementById('setCount').oninput = initTorii;
 document.getElementById('distanceRange').oninput = setDistance;
 document.getElementById('apertureRange').oninput = setAperture;
 document.getElementById('effectRange').oninput = setEffect;
+document.getElementById('focusRange').oninput = setFocus;
 
 document.getElementById('offsetX').innerText = 'offsetX: ' + AVG_X;
 document.getElementById('offsetY').innerText = 'offsetY: ' + AVG_Y;
@@ -23,6 +24,7 @@ function initTorii() {
 	
 	removeImg();
 	createImg();
+	setFocus();
 	setAperture();
 	setDistance();
 	setEffect();
@@ -43,6 +45,18 @@ function setDistance() {
 }
 
 //Обновление значения "effectRange"
+function setFocus() {
+	
+	updateLabelValue('focusRange', 'focusRangeValue');
+	
+	document.getElementById('focusRange').max = document.getElementById('setCount').value;
+	
+	setAperture();
+	
+}
+
+
+//Обновление значения "effectRange"
 function setEffect() {
 	
 	updateLabelValue('effectRange', 'effectRangeValue');
@@ -53,9 +67,14 @@ function setAperture() {
 	
 	updateLabelValue('apertureRange', 'apertureRangeValue');
 	
-	for(let i = 0; i < IMG_LIST.length; i++) {
-		IMG_LIST[i].style.filter = 'blur(' + ((i*5) / +document.getElementById('apertureRange').value) / (Math.pow(+document.getElementById('distanceRange').value,3)) +'px)';
+	for(let i = document.getElementById('focusRange').value-1, n = 0; i < IMG_LIST.length; i++, n++) {
+		IMG_LIST[i].style.filter = 'blur(' + ((n*5) / +document.getElementById('apertureRange').value) / (Math.pow(+document.getElementById('distanceRange').value,3)) +'px)';
 	}
+	
+	for(let i = document.getElementById('focusRange').value-2, n = 1; i >= 0; i--, n++) {
+		IMG_LIST[i].style.filter = 'blur(' + ((n*5) / +document.getElementById('apertureRange').value) / (Math.pow(+document.getElementById('distanceRange').value,3)) +'px)';
+	}
+	
 }
 
 //Создание новых элементов в контейнере "elemTorii"
