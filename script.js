@@ -72,7 +72,7 @@ function setAperture() {
 	}
 	
 	let backgroundBlur = (((n+3)*5) / +document.getElementById('apertureRange').value) / (Math.pow(+document.getElementById('distanceRange').value,3));
-	document.getElementById('ToriiBackground').style.filter = 'blur(' + ( backgroundBlur <= 25? backgroundBlur : 25 ) + 'px)';
+	document.getElementById('ToriiBackground').style.filter = 'blur(' + ( backgroundBlur <= 30? backgroundBlur : 30 ) + 'px)';
 	
 	
 	for(var i = document.getElementById('focusRange').value-2, n = 1; i >= 0; i--, n++) {
