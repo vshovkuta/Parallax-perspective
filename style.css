@@ -1,8 +1,8 @@
-/** {
+/* * {
   border: 1px dotted red;
 }*/
 
-#Torii, #ToriiCover {
+#Torii, #ToriiCover, #ToriiBackground {
 	width: 510px;
 	height: 350px;
 	margin: 0px;
@@ -12,12 +12,26 @@
 	overflow: hidden;
 }
 
+#ToriiCover, #ToriiBackground {
+	position: absolute;
+}
+
+#ToriiBackground {
+	transition: 0.1s;
+}
+
 #Torii {
-	background-image:url(https://cdn-image.travelandleisure.com/sites/default/files/styles/1600x1000/public/1449611329/TL0116HOK01-HOKKAIDO0116.jpg?itok=8HDNz8bJ);
-	background-size:cover;
 	margin-bottom: 15px;
 	z-index:0;
 }
+
+#ToriiBackground {
+	background-image:url(https://cdn-image.travelandleisure.com/sites/default/files/styles/1600x1000/public/1449611329/TL0116HOK01-HOKKAIDO0116.jpg?itok=8HDNz8bJ);
+	background-size:cover;
+	z-index:-999;
+
+}
+
 
 input {
 	flex-grow: 2;

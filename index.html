@@ -14,7 +14,10 @@
 		</div>
 	</fieldset>
 
-<figure id="Torii" style="width: 510px;height: 350px;"><figure id="ToriiCover" style="width: 510px;height: 350px;z-index:2"></figure></figure>
+<figure id="Torii" style="width: 510px;height: 350px;">
+	<figure id="ToriiBackground" style="width: 510px;height: 350px;z-index:-999"></figure>
+	<figure id="ToriiCover" style="width: 510px;height: 350px;z-index:2"></figure>
+</figure>
 
 <form>
 	<fieldset>
@@ -26,7 +29,7 @@
 		</div>
 		<div class="container">
 			<label>Aperture</label>
-			<input id="apertureRange" type="range"	min="2" max="32" step="1" value="8">
+			<input id="apertureRange" type="range"	min="2" max="32" step="1" value="16">
 			<label id="apertureRangeValue">0</label>
 		</div>
 		<div class="container">

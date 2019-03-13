@@ -67,11 +67,15 @@ function setAperture() {
 	
 	updateLabelValue('apertureRange', 'apertureRangeValue');
 	
-	for(let i = document.getElementById('focusRange').value-1, n = 0; i < IMG_LIST.length; i++, n++) {
+	for(var i = document.getElementById('focusRange').value-1, n = 0; i < IMG_LIST.length; i++, n++) {
 		IMG_LIST[i].style.filter = 'blur(' + ((n*5) / +document.getElementById('apertureRange').value) / (Math.pow(+document.getElementById('distanceRange').value,3)) +'px)';
 	}
 	
-	for(let i = document.getElementById('focusRange').value-2, n = 1; i >= 0; i--, n++) {
+	let backgroundBlur = ((n*5) / +document.getElementById('apertureRange').value) / (Math.pow(+document.getElementById('distanceRange').value,3));
+	document.getElementById('ToriiBackground').style.filter = 'blur(' + ( backgroundBlur <= 25? backgroundBlur : 25 ) + 'px)';
+	
+	
+	for(var i = document.getElementById('focusRange').value-2, n = 1; i >= 0; i--, n++) {
 		IMG_LIST[i].style.filter = 'blur(' + ((n*5) / +document.getElementById('apertureRange').value) / (Math.pow(+document.getElementById('distanceRange').value,3)) +'px)';
 	}
 	
