@@ -44,7 +44,7 @@ function setDistance() {
 	setAperture();
 }
 
-//Обновление значения "effectRange"
+//Обновление значения "focusRange"
 function setFocus() {
 	
 	updateLabelValue('focusRange', 'focusRangeValue');
