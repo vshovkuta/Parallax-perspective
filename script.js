@@ -41,6 +41,8 @@ function setDistance() {
 		//console.log(i);
 	}
 	
+	document.getElementById('ToriiBackground').style.transform = 'scale(' + (2*document.getElementById('distanceRange').value) + ')';
+  
 	setAperture();
 }
 
